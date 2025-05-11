@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="@string/txt_subtitle"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="16dp"
         android:letterSpacing="0.1"
         android:layout_marginTop="10dp"
         android:layout_marginStart="40dp"
