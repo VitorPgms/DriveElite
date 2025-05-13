@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.driveelite.R
 import com.example.driveelite.adapter.CarroAdapter
+import com.example.driveelite.adapter.CategoriaAdapter
 import com.example.driveelite.adapter.MotoAdapter
 import com.example.driveelite.databinding.ActivityTelaPrincipalBinding
 import com.example.driveelite.model.Carro
@@ -27,8 +28,21 @@ class TelaPrincipal : AppCompatActivity() {
             insets
         }
 
+        val recyclerView1 = binding.recyclerView1
         val recyclerView2 = binding.recyclerView2
         val recyclerView3 = binding.recyclerView3
+
+        val categorie = listOf("Todos", "Carros", "Motos", "BMW")
+
+        val adapter = CategoriaAdapter(categorie) { categiaSelecionada ->
+
+            if(categiaSelecionada == "Todos") {
+                //Mostrar todos os itens
+            } else {
+                //Filtrar ou navegar
+            }
+
+        }
 
 
         val categorieCarro = listOf(
@@ -44,6 +58,8 @@ class TelaPrincipal : AppCompatActivity() {
             Moto("Hornet", R.drawable.gtrr35, "R$200/Dia")
         )
 
+        recyclerView1.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView1.adapter = adapter
 
         recyclerView2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
         recyclerView2.adapter = CarroAdapter(categorieCarro)
